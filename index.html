@@ -18,6 +18,39 @@
         <source src="http://music.163.com/song/media/outer/url?id=186453.mp3" type="audio/mp3">
         </source>
     </audio>
+    <!audio src="http://music.163.com/song/media/outer/url?id=186453.mp3" autoplay="autoplay">
+    <!--</audio>-->
+    <!audio controls="controls" loop="loop" autoplay="autoplay">
+       <!source src="https://sharefs.ali.kugou.com/202304091554/762613cfc7d605511f43985124f1c967/KGTX/CLTX001/578908ab6d00569245b3a55c62dfc93c.mp3" type="audio/mp3">
+    <!/audio>
+    <audio src="https://sharefs.ali.kugou.com/202304091554/762613cfc7d605511f43985124f1c967/KGTX/CLTX001/578908ab6d00569245b3a55c62dfc93c.mp3" controls autoplay></audio>
+
+    <script>
+        const audio = document.querySelector('audio');
+
+        // auto play when script loaded
+        audio
+            .play()
+            .then(() => {
+                console.log(`autoplay well`);
+            })
+            .catch((e) => {
+                console.log(`autoplay fail, wait for first click`);
+                if (e instanceof DOMException) {
+                    // play before user intersact
+                    const autoPlayAfterAnyClick = () => {
+                        audio.play();
+                        document.removeEventListener('click', autoPlayAfterAnyClick);
+                    };
+
+                    document.addEventListener('click', autoPlayAfterAnyClick);
+                    throw e;
+                } else {
+                    // or rethrow
+                    throw e;
+                }
+            });
+    </script>
 <body>
     <!-- 标题板块 -->
     <div class="title">
@@ -142,7 +175,7 @@
                 <div class="swiper-slide">
                     <div class="page2-box">
                         <img src="./images/page-2-8.jpg" alt="page2-8">
-                        <p><b>第一次和你一起玩游戏</b></p>
+                        <p><b>第一次一起玩游戏</b></p>
                         <p>没想到你这么喜欢“分手厨房”！</p>
                         <p>以后再也不要因为玩游戏跟你急了！</p>
                     </div>
@@ -173,29 +206,35 @@
         <div id="talkToXHJ">
             <b>回顾过去的两年</b>
             <br />
-            很多事情仍然像刚刚发生过一样清晰，
+            很多事情仍然像刚刚发生过一样清晰
             <br />
             <br />
-            <b>这是我们的第二个520</b>
+            <b>这是我们的第二个纪念日</b>
             <br />
-            比较直男的我，还是用属于我的方式来送你一个小小的虚拟礼物（上次那个太不用心了哈哈）
+            比较直男的我，还是用属于我的方式来送你一个小小的礼物
             <br />
-            这段时间经常告诉你我在写代码不能陪你玩，其实我都在花心思做这个呢，我想把它做到很好很好，让你感受一下“代码”带来了趣味性
+            与你共度的时光，多久都不足够
             <br />
-            用心才能做得更好，陪你也是这样，每天的事情大同小异，除去日常琐事剩下的就是陪你，日复一日但是每天都会是不同的感觉，带来不同的乐趣
+            春天里淅淅沥沥的小雨，夏天里扑面而来的清风，秋天里金黄色的落叶，冬天里暖烘烘的被窝
             <br />
-            陪你玩游戏，陪你聊天，一起互怼一起疯，看似再平常不过的事情在我们这里都充满了开心
+            这些都是我喜爱的东西，可与你相比的话，他们万不及一！（包括我的游戏墙）
             <br />
+            时光其实很长也很短，长到一辈子也数不完，短到和你一起时的每分每秒都会珍惜
+            <br />
+            我们一起做饭，一起看电视，一起散步，一起玩游戏……生活大概就是这样，在简单中感受幸福
+            <br />
+            <br />
+            而我，也一定会改过自新，重新做人（不是），好好地珍惜全宇宙独一无二的你
             <br />
             <b>我想</b>
             <br />
-            我们还会有好多好多的520，不过每一次我都要尝试用新鲜的思路去给你带来一些值得回忆的瞬间还是很有挑战性的，对我来说给你准备惊喜的过程总是充满了动力
+            以后我们还会有好多好多的纪念日，希望每一次，都能留下美好的回忆
             <br />
-            用文字来对你说一些话感觉好像情书一样尴尬哈哈，那就不说了我
+            在一起的每分每秒都是生命中弥足珍贵的时刻，万分期待未来与你共度的每一个日日夜夜
             <br />
-            节日快乐猪
+            老婆，纪念日快乐！
             <br />
-            ## 爱你的仔仔 (๑′ᴗ‵๑)~ ❤
+            ## 爱你的哥哥 (๑′ᴗ‵๑)~ ❤
         </div>
     </div>
 
@@ -250,7 +289,7 @@
         <div class="footer">
             <div class="footerBox">
                 <p>
-                    &copy; 2020
+                    &copy; 2023
                     <a href="https://love-xll.cn">哥哥 && 岚岚</a> |
                     <a href="http://beian.miit.gov.cn">某ICP备XXXXXXXX号-X</a>
                 </p>
