@@ -1,7 +1,7 @@
 new TypeIt("#tqyxhj", {
         loop: true,
         cursorSpeed: 1000,
-        speed: 60
+        speed: 150
     })
     .type("哥哥 和 岚岚")
     .pause(2000)
@@ -16,5 +16,5 @@ new TypeIt('#talkToXHJ', {
     lifeLike: true,
     cursorSpeed: 1000,
     waitUntilVisible: true,
-    speed: 60
+    speed: 150
 }).go();
